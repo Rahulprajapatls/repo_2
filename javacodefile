@@ -1,0 +1,146 @@
+//Java code
+
+//############## Reverse String ###########
+
+
+
+class Main {
+    public static String revstring(String input){
+    char[] inputArray = input.toCharArray();
+    System.out.println("original string is " + new String(inputArray));
+    int left = 0;
+    int right = inputArray.length - 1;
+    
+    while(left < right){
+        char temp = inputArray[left];
+        inputArray[left] = inputArray[right];
+        inputArray[right] = temp;
+        left++;
+        right--;
+    }
+
+    String reversed = new String(inputArray);
+    return reversed;
+
+    
+}
+
+    public static void main(String[] args){
+        String original = "Rahul";
+        String reverse =  revstring(original);
+        System.out.println("######");
+        System.out.println(original);
+        System.out.println(reverse);
+        
+    }
+}
+
+
+// ######################### Prime number ####################
+
+class Main {
+    public static boolean isprime(int input) {
+        if (input <= 1) {
+            return false;
+        }
+
+        int sqrt = 1;
+        while (sqrt * sqrt <= input) { // Find the square root (or nearest integer) manually
+            sqrt++;
+        }
+        sqrt--; // The correct square root integer
+
+        // Math.sqrt(input); we can also use the built-in function for square root
+        for (int i = 2; i <= sqrt; i++) {
+            if (input % i == 0) {
+                return false; // Not a prime number
+            }
+        }
+        return true; // Prime number
+    }
+
+    public static void main(String[] args) {
+        int number = 8; // Replace with any number to test
+        if (isprime(number)) {
+            System.out.println("The given number " + number + " is prime.");
+        } else {
+            System.out.println("The given number " + number + " is not prime.");
+        }
+    }
+}
+
+
+// ###################### Palindrome number ###################
+
+
+class Main {
+    public static boolean ispalindrome(String input){
+        input = input.toLowerCase();
+        int left = 0;
+        int right = input.length() - 1;
+        
+        while(left < right){
+            if(input.charAt(left) != input.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        String input = "1221221";
+        boolean result = ispalindrome(input);
+        System.out.println("the number is palindrome " + result);
+    }
+}
+
+
+
+############################ fibonacci series ##################
+
+class Main {
+    public static int fib(int input){
+        if(input <= 1){
+            return input;
+        }
+        return fib(input - 1) + fib(input - 2);
+    }
+    public static void main(String[] args) {
+        int input = 5;
+        System.out.println("the fibbnaci series up to is " + input + " term");
+        for (int i =0; i < input; i++){
+            System.out.println( "The " + (i + 1) + " st number of series is " + fib(i));
+        }
+    }
+}
+
+
+#############################  Vowels count ##################
+
+
+class Main {
+    
+    public static int vcount(String input){
+        input = input.toLowerCase();
+        int count = 0;
+        char[] str = input.toCharArray();
+        
+        for(int i = 0; i < str.length; i++){
+            if(str[i] == 'a'||str[i] == 'i'||str[i] == 'e'||str[i] == 'o'||str[i] == 'u'){
+                count++;
+            }
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+
+        String input = "rqrqrqqrqiiiiiirAAA";
+        System.out.println("the count of vowels is " + vcount(input));
+    }
+}
+
+
+
+
+
